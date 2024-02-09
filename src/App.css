@@ -1,38 +1,200 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  width: 100%;
+  height: 100vh;
+  background: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+/* HEADER starts here */
+.header__container {
+  width: 375px;
+  height: 44px;
+  background: rgb(255, 255, 255);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/*HEADER ends here */
+
+/*INPUT starts here */
+.form__container {
+  padding-top: 14px;
+  width: 375px;
+  height: 768px;
+  background: rgb(240, 240, 240);
+}
+
+.form__wrapper {
+  margin: 0 32px 712px 32px;
+
+}
+
+.form__input-container {
+  display: flex;
+  justify-content: space-between;
+  width: 311px;
+  height: 44px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.form__input {
+  padding-left: 17px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  background: url("../src/img/datepicker.png") no-repeat top 11px right 17px white;
+  transition: 0.1s;
+}
+
+.form__input:hover {
+  box-shadow: 0px 0px 10px 2px #f5b191;
+  outline: none;
+}
+
+.form__input:active, .form__input:focus {
+  box-shadow: 0px 0px 16px 3px #f67644;
+  outline: none;
+}
+
+/*INPUT ends here */
+
+/*MODAL starts here */
+.popup__container {
+  position: fixed;
+  max-width: 375px;
+  max-height: 812px;
+  width: 100%;
+  height: 100%;
+  background: rgb(240, 240, 240);
+  transform: scale(1);
+  transition: 0.3s;
+}
+
+.hidden {
+  transform: scale(0);
+  transition: transform 0.5s;
+}
+
+.popup__header {
+  background: white;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.calendar__wrap {
+  background: white;
+  display: flex;
+  justify-content: center;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.popup__calendar {
+  width: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
+}
+
+.popup__arrow {
+  width: 17px;
+  height: 17px;
+  border: none;
+  box-shadow: none;
+  background: white;
+}
+
+.popup__arrow:last-child {
+  margin-left: 10px;
+}
+
+.calendar__days-of-week, .calendar__container {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(7, 52px );
+  align-items: stretch;
+}
+
+.calendar__container div:first-child {
+  grid-column: 2;
+}
+
+.week__day {
+  color: rgba(60, 60, 67, 0.3);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.calendar__date {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 52px;
+  color: rgb(239, 138, 34);
+  font-weight: 500;
+  font-size: 20px;
+  transition: 0.1s;
+}
+
+.calendar__date:focus, .calendar__date:hover, .calendar__date:active {
+  background: orange;
   color: white;
+  border-radius: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.disabled {
+  opacity: 0.2;
+  color: rgb(51, 51, 51);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  pointer-events: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sold {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 12px;
+  background: rgba(255, 0, 0, 0.85);
+  color: white;
+  border-radius: 14px;
+  pointer-events: none;
 }
+
+
