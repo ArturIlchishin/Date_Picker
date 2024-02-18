@@ -1,8 +1,8 @@
 import logo from '../img/logo.png'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
-export const Header = () => {
-    const [actualTime, setActualTime] = useState()
+export const Header: React.FC = () => {
+    const [actualTime, setActualTime] = useState<string>('')
 
     useEffect(() => setActualTime(getOurTime()),[actualTime])
 
@@ -13,11 +13,11 @@ export const Header = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const getOurTime = () => {
+    const getOurTime = ():string => {
         let ourDate = new Date();
-        const hours = `${ourDate.getHours()}`;
-        const minutes = `${ourDate.getMinutes()}`;
-        let finalCountdown;
+        const hours: string = `${ourDate.getHours()}`;
+        const minutes: string = `${ourDate.getMinutes()}`;
+        let finalCountdown: string;
         minutes.length < 2 ?
             finalCountdown = `${hours}:0${minutes}` :
             finalCountdown = `${hours}:${minutes}`;

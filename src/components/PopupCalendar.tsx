@@ -2,12 +2,18 @@ import left_arrow from '../img/Arrow _ Left.png'
 import right_arrow from '../img/Arrow _ Right.png'
 import {useEffect} from "react";
 
-export const PopupCalendar = (props) => {
+interface IPopularCalendar {
+    active: boolean
+    setActive: (isActive: boolean) => void
+    setDate: (date: string) => void
+    date: string
+}
+export const PopupCalendar = ({active, setActive, setDate}: IPopularCalendar) => {
 
     const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT' ]
 
-    const generateDates = (firstDate, lastDate) => {
-        const randomDates = [];
+    const generateDates = (firstDate: number, lastDate: number) => {
+        const randomDates: number[] = [];
         for( let i = 0; i < 6; i++ ) {
             const randomDate = Math.floor( firstDate + Math.random() * (lastDate + 1 - firstDate) )
             console.log(randomDate)
@@ -25,7 +31,7 @@ export const PopupCalendar = (props) => {
     const dates = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
 
     return (
-        <div className={`popup__container ${props.active ? '' : 'hidden'}`}>
+        <div className={`popup__container ${active ? '' : 'hidden'}`}>
             <div className={'popup__content'}>
                 <div className={'popup__header'}>
                     <div className={'popup__month__container'}>
@@ -57,8 +63,8 @@ export const PopupCalendar = (props) => {
                             ${soldOutDates().includes(date) ? 'sold' : ''}
                             `}
                             onClick={(event) => {
-                                props.setDate(`August ${event.currentTarget.textContent},2020`);
-                                props.setActive(false);
+                                setDate(`August ${event.currentTarget.textContent},2020`);
+                                setActive(false);
                             }}>{soldOutDates().includes(date) ? 'sold out' : date}
                         </div> )}
                     </div>

@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import {Header} from "./components/Header";
-import {Input} from "./components/Input";
+import {DatePicker} from "./components/DatePicker";
 
 function App() {
+
   return (
       <main className={'main'}>
           <Header />
-          <Input />
+          <DatePicker />
       </main>
   );
 }

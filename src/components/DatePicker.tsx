@@ -1,10 +1,10 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import {PopupCalendar} from "./PopupCalendar";
 
-export const Input = () => {
+export const DatePicker: React.FC = () => {
 
-    const [modalActive, setModalActive] = useState(false);
-    const [date, setDate] = useState('');
+    const [modalActive, setModalActive] = useState<boolean>(false);
+    const [date, setDate] = useState<string>('');
 
 
     return (
